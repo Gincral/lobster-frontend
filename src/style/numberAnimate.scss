@@ -1,0 +1,30 @@
+
+@property --end {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+}
+
+@property --num {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+}
+  
+.movingNumber {
+    display: inline-block;
+    animation: counter 1.5s alternate ease-in-out;
+    counter-reset: num var(--num);
+}
+.movingNumber::after {
+    content: counter(num);
+}
+  
+@keyframes counter {
+    from {
+        --num: 0;
+    }
+    to {
+        --num: var(--end);
+    }
+}

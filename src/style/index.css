@@ -3,3 +3,34 @@ body {
     font-family: 'Ubuntu', sans-serif;
     background-color: rgb(250 249 250);
 }
+
+.titleb{
+    font-size: 40px;
+    font-weight: 500;
+}
+.title{
+    font-size: 40px;
+}
+
+.title-sm{
+    font-size: 30px;
+}
+
+.header1{
+    font-size: 24px;
+}
+
+.header2{
+    font-size: 16px;
+}
+.content{
+    font-size: 14px;
+}
+
+.inblock{
+    display: inline-block;
+}
+
+*:focus{
+    outline: none;
+}

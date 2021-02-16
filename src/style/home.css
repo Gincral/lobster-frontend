@@ -1,0 +1,54 @@
+.home{
+    min-width: 600px;
+    max-width: 800px;
+    width: 50%;
+    margin: auto;
+    height: 150px;
+    padding-top: 80px;
+}
+
+.home-title {
+    white-space: nowrap;
+    text-align: center;
+}
+
+.home-line {
+    display: inline-block;
+}
+
+.home-left {
+    float: left;
+    font-size: 80px;
+}
+
+.home-right {
+    float: right;
+    font-size: 80px;
+}
+
+.home-line-sub{
+    padding-top: 20px;
+}
+
+.home-pool {
+    margin-top: 70px;
+    background-color: white;
+    text-align: center;
+    box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px, rgb(25 19 38 / 5%) 0px 1px 1px;
+    border-radius: 32px;
+    padding: 50px;
+}
+
+.home-total, .home-harvest{
+    display: inline-block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 80%;
+    margin-bottom: 40px;
+    margin-top: 5px;
+}
+
+.home-number{
+    padding-left: 20px;
+    padding-right: 20px;
+}

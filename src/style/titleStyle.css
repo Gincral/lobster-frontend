@@ -1,18 +1,23 @@
 
-.titlebar-titlebar{
+.titlebar-titlebar {
     display: flex ;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 500;
-    padding: 0px 16px 0px 8px;
     width: 100%;
     height: 64px;
     border-bottom: 2px solid rgba(133, 133, 133, 0.1);
     background-color: white;
 }
 
-.titlebar-title{
+.titlebar-title {
     margin-left: 50px;
     height: 100%;
     display: flex;
     align-items: center;
+}
+
+.connect-btn {
+    position: absolute;
+    right: 30px;
+    top: 12px
 }

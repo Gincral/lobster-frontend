@@ -1,5 +1,5 @@
 import React from 'react';
-import '../style/titleStyle.css';
+
 class TitleBar extends React.Component{
 
     render(){
@@ -8,6 +8,7 @@ class TitleBar extends React.Component{
         return (<>
             <div className="titlebar-titlebar"> 
                 <div className="titlebar-title">🦞 Lobster Finance</div>
+                <button className='btn-regular connect-btn blue btn'> Connect Wallet </button>
             </div>
         </>)
     }
