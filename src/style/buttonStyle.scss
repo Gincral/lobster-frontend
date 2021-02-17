@@ -28,15 +28,14 @@ $colors: (
 
 @each $button, $color in $colors {
   .#{$button} {
-    --color: #{$color};
+    --color: white;
     --hover: #{adjust-hue($color, 45deg)};
     border-color: #{$color};
-    background-color: white;
+    background-color: #{$color};
     
 
   }
 }
-
 
 .btn {  
   color: var(--color);

@@ -10,7 +10,7 @@
 }
 
 .titlebar-title {
-    margin-left: 50px;
+    margin-left: 10px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -20,4 +20,10 @@
     position: absolute;
     right: 30px;
     top: 12px
+}
+
+.titlebar-logo {
+    height: 50px;
+    padding-top: 8px;
+    margin-left: 90px;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../resources/icon/icon-black.png';
 
 class TitleBar extends React.Component{
 
@@ -7,7 +8,8 @@ class TitleBar extends React.Component{
         
         return (<>
             <div className="titlebar-titlebar"> 
-                <div className="titlebar-title">🦞 Lobster Finance</div>
+                <img className="titlebar-logo" src={logo}/>
+                <div className="titlebar-title"> Lobster Finance</div>
                 <button className='btn-regular connect-btn blue btn'> Connect Wallet </button>
             </div>
         </>)

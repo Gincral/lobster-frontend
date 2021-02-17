@@ -48,6 +48,11 @@
     margin-top: 5px;
 }
 
+.logo-md{
+    margin-bottom: -15px;
+    height: 60px;
+}
+
 .home-number{
     padding-left: 20px;
     padding-right: 20px;

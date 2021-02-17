@@ -1,5 +1,6 @@
 import React from 'react';
 import TitleBar from './TitleBar';
+import logo from '../resources/icon/icon-black.png';
 
 class Home extends React.Component {
 
@@ -29,23 +30,23 @@ class Home extends React.Component {
                     <div className='home-line home-left'>🦞</div>
                     <div className='home-line'>
                         <div className='titleb'>Lobster Finance</div>
-                        <div className='header2 home-line-sub'>Get your LOBEE ready ;333333333333333</div>
+                        <div className='header2 home-line-sub'>There's Only One Shiba Named Lobster!</div>
                     </div>
                     <div className='home-line home-right'>🦞</div>
                 </div>
 
                 <div className="home-pool">
-                    <div className='header1'>Your Staking LOBEE:</div>
+                    <div className='header1'>Your Staking LOBEEs:</div>
                     <div className='title home-total'> 
-                        <div className='inblock title-sm'>🦞</div>
+                        <img className='inblock logo-md' src={logo}/>
                         <div className='inblock home-number'><a1 className="movingNumber"></a1>.<a2 className="movingNumber"></a2></div>
-                        <div className='inblock header1'>LOBEEs</div>
+                        <div className='inblock header2'>LOBEEs</div>
                     </div>
-                    <div className='header1'> LOBEE to Harvest: </div>
+                    <div className='header1'> LOBEEs to Harvest: </div>
                     <div className='title home-harvest'> 
-                        <div className='inblock title-sm'>🦞</div>
+                        <img className='inblock logo-md' src={logo}/>
                         <div className='inblock home-number'><a3 className="movingNumber"></a3>.<a4 className="movingNumber"></a4></div>
-                        <div className='inblock header1'>LOBEEs</div>
+                        <div className='inblock header2'>LOBEEs</div>
                     </div>
                     <div className='home-buttons'>
                         <button className='btn-regular orange btn'> Harvest </button>
