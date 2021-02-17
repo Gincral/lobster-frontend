@@ -1,6 +1,7 @@
 import React from 'react';
 import TitleBar from './TitleBar';
 import logo from '../resources/icon/icon-black.png';
+import { withTranslation } from 'react-i18next';
 
 class Home extends React.Component {
 
@@ -21,6 +22,7 @@ class Home extends React.Component {
     };
 
     render() {
+        const { t } = this.props;
         const number1 = 1454.45;
         const number2 = 54.45;
         return (<>
@@ -30,7 +32,9 @@ class Home extends React.Component {
                     <div className='home-line home-left'>🦞</div>
                     <div className='home-line'>
                         <div className='titleb'>Lobster Finance</div>
-                        <div className='header2 home-line-sub'>There's Only One Shiba Named Lobster!</div>
+                        <div className='header2 home-line-sub'>{t('title')}</div>
+                        <div className='header2 home-line-sub'>{ t('title-two') }</div>
+
                     </div>
                     <div className='home-line home-right'>🦞</div>
                 </div>
@@ -64,5 +68,5 @@ class Home extends React.Component {
 
 }
 
-
-export default Home;
+const HomeComponent = withTranslation()(Home);
+export default HomeComponent;

@@ -6,6 +6,7 @@ import './style/home.css'
 import './style/numberAnimate.scss';
 import './style/titleStyle.css';
 import './style/buttonStyle.scss';
+import './i18n';
 
 ReactDOM.render(
   <React.StrictMode>
