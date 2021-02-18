@@ -3,7 +3,7 @@ import logo from '../resources/icon/icon-black.png';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Wallet from '@project-serum/sol-wallet-adapter';
-import { getBalance } from '../service/connectToWallet';
+import { getSOLBalance, getLOBEEBalance } from '../service/connectToWallet';
 // import { connectToWallet, disconnectToWallet, setUserAddress, clearUserAddress } from '../redux/actions';
 
 
@@ -14,7 +14,8 @@ class TitleBar extends React.Component {
             walletConnected: false,
             userAddress: null,
             hiddenAddress: null,
-            balance: -100,
+            SOLbalance: -100,
+            LOBEEbalance: -100,
         }
     }
 
@@ -22,12 +23,13 @@ class TitleBar extends React.Component {
         let providerUrl = 'https://www.sollet.io';
         let wallet = new Wallet(providerUrl);
         wallet.on('connect', async (publicKey) => {
-            // console.log(publicKey.toBase58());
+            console.log(publicKey.toBase58());
             // await this.props.dispatch(setUserAddress(publicKey.toBase58()));
             // await this.props.dispatch(connectToWallet());
-            await this.setState({ balance: await getBalance(publicKey) });
+            await this.setState({ SOLbalance: await getSOLBalance(publicKey.toBase58()) });
+            await this.setState({ LOBEEbalance: await getLOBEEBalance(publicKey.toBase58()) });
             await this.setState({ walletConnected: true });
-            await this.setState({ userAddress: publicKey });
+            await this.setState({ userAddress: publicKey.toBase58() });
             await this.setState({ hiddenAddress: this.hideAddress(publicKey.toBase58()) })
         });
         wallet.on('disconnect', async () => {
@@ -51,7 +53,8 @@ class TitleBar extends React.Component {
                 <div className="titlebar-title"> Lobster Finance</div>
                 {!this.state.walletConnected && (<button className='btn-regular connect-btn blue btn' onClick={this.wallet}> Connect</button>)}
                 {this.state.walletConnected && (<>
-                    <button className='btn-regular balance-btn purple btn'> {'Balance: '+' ' + this.state.balance +' '+' SOL'} </button>
+                    <button className='btn-regular lobee-balance-btn purple btn'> {this.state.LOBEEbalance +' '+' LOBEE'} </button>
+                    <button className='btn-regular sol-balance-btn purple btn'> {this.state.SOLbalance +' '+' SOL'} </button>
                     <button className='btn-regular address-btn purple btn'> {this.state.hiddenAddress} </button>
                 </>)}
             </div>

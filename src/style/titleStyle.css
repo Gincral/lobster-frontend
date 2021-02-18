@@ -38,12 +38,21 @@
     padding: 10px 20px !important;
 }
 
-.balance-btn{
+.sol-balance-btn{
     font-size: 14px !important;
     font-weight: 300 !important;
     position: absolute;
     float: right ;
     right: 200px;
+    top: 12px;
+    padding: 10px 20px !important;
+}
+.lobee-balance-btn{
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    position: absolute;
+    float: right ;
+    right: 315px;
     top: 12px;
     padding: 10px 20px !important;
 }

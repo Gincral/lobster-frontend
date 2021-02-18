@@ -1,6 +1,7 @@
 import Wallet from '@project-serum/sol-wallet-adapter';
-import { connectToWallet, disconnectToWallet, setUserAddress, clearUserAddress } from '../redux/actions';
+// import { connectToWallet, disconnectToWallet, setUserAddress, clearUserAddress } from '../redux/actions';
 import { Connection, LAMPORTS_PER_SOL } from '@solana/web3.js';
+import axios from 'axios';
 
 export async function wallet() {
   let providerUrl = 'https://www.sollet.io';
@@ -14,13 +15,43 @@ export async function wallet() {
   await wallet.connect();
 }
 
-export async function getBalance(publicKey) {
+export async function getSOLBalance(publicKey) {
   // const url = 'http://localhost:8899';
-  const url = 'https://devnet.solana.com';
-  const connection = new Connection(url, 'singleGossip');
-  const version = await connection.getVersion();
-  console.log('Connection to cluster established:', url, version);
-  const lamports = await connection.getBalance(publicKey);
-  const balance =  (Math.round(lamports / LAMPORTS_PER_SOL * 100) / 100).toFixed(2)
-  return balance;
+  const url = 'http://api.devnet.solana.com';
+  const body = { "jsonrpc": "2.0", "id": 1, "method": "getBalance", "params": [publicKey] }
+  const responce = await axios.post(url, body);
+  const balance = responce.data.result.value
+  return balance/LAMPORTS_PER_SOL;
+}
+
+export async function getLOBEEBalance(publicKey) {
+  // const url = 'http://localhost:8899';
+  const url = 'http://api.devnet.solana.com';
+  const body = {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getProgramAccounts",
+    "params": [
+      "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+      {
+        "encoding": "jsonParsed",
+        "filters": [
+          {
+            "dataSize": 165
+          },
+          {
+            "memcmp": {
+              "offset": 32,
+              "bytes": publicKey
+            }
+          }
+        ]
+      }
+    ]
+  }
+  const responce = await axios.post(url, body);
+  const balance = responce.data.result[0].account.data.parsed.info.tokenAmount.amount;
+  console.log(balance);
+  return balance/LAMPORTS_PER_SOL;
+  // return balance;
 }
