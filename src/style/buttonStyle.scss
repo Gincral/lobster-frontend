@@ -14,7 +14,6 @@
     box-shadow: inset 0 -3.25em 0 0 var(--hover);
 }
 
-
 $colors: (
   purple: #a972cb,
   red: #ef6eae, 
@@ -25,15 +24,12 @@ $colors: (
   blue: #19bc8b
 );
 
-
 @each $button, $color in $colors {
   .#{$button} {
     --color: white;
     --hover: #{adjust-hue($color, 45deg)};
     border-color: #{$color};
     background-color: #{$color};
-    
-
   }
 }
 

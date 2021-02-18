@@ -27,3 +27,23 @@
     padding-top: 8px;
     margin-left: 90px;
 }
+
+.address-btn{
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    position: absolute;
+    float: right ;
+    right: 20px;
+    top: 12px;
+    padding: 10px 20px !important;
+}
+
+.balance-btn{
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    position: absolute;
+    float: right ;
+    right: 200px;
+    top: 12px;
+    padding: 10px 20px !important;
+}

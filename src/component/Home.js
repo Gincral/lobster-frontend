@@ -27,13 +27,14 @@ class Home extends React.Component {
         const number2 = 54.45;
         return (<>
             <TitleBar />
+            {/* <Wallet/> */}
             <div className="home">
                 <div className="home-title">
                     <div className='home-line home-left'>🦞</div>
                     <div className='home-line'>
                         <div className='titleb'>Lobster Finance</div>
                         <div className='header2 home-line-sub'>{t('title')}</div>
-                        <div className='header2 home-line-sub'>{ t('title-two') }</div>
+                        {/* <div className='header2 home-line-sub'>{ t('title-two') }</div> */}
 
                     </div>
                     <div className='home-line home-right'>🦞</div>

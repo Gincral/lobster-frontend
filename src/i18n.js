@@ -4,7 +4,7 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {  //english
-          "title": "english TRANSLATION",
+          "title": "There's Only One Shiba Named Lobster!",
           "title-two": "TRANSLATE THIS WAY"
 
     }
