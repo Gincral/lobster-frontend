@@ -1,40 +1,37 @@
 .home{
+    width: 100% !important;
+}
+
+.home-content{
+    margin: auto;
+    width: 70%;
     min-width: 600px;
-    max-width: 800px;
+    max-width: 1000px;
     padding-top: 80px;
-    width: 50%;
 }
 
 .home-title {
-    white-space: nowrap;
-    text-align: center;
+    padding-top: 50px;
 }
 
-.home-line {
-    display: inline-block;
-}
-
-.home-left {
-    float: left;
-    font-size: 80px;
-}
-
-.home-right {
+.title-pic{
+    height: 300px;
+    display: flex;
     float: right;
-    font-size: 80px;
+    margin-top: -150px;
 }
 
-.home-line-sub{
-    padding-top: 20px;
+.title-sub{
+    padding-left: 5px;
 }
 
 .home-pool {
-    margin-top: 70px;
+    margin-top: 30px;
     background-color: white;
-    text-align: center;
-    box-shadow: rgb(25 19 38 / 10%) 0px 2px 12px -8px, rgb(25 19 38 / 5%) 0px 1px 1px;
+    box-shadow: rgb(25 19 38 / 20%) 0px 2px 12px -8px, rgb(25 19 38 / 5%) 0px 1px 1px;
     border-radius: 32px;
-    padding: 50px;
+    padding: 50px 220px 50px 100px;
+    height: 400px;
 }
 
 .home-total, .home-harvest{
@@ -47,7 +44,6 @@
 }
 
 .logo-md{
-    margin-bottom: -15px;
     height: 60px;
 }
 
@@ -58,6 +54,24 @@
 
 .home-grid {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 242px auto;
     height: calc(100vh - 66px);
+}
+
+.grid-two{
+    margin-top: 40px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.home-pool-left{
+    text-align: center;
+}
+
+.home-pool-number{
+    margin-top: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    color:#a72f38;
 }

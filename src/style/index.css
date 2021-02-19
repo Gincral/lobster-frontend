@@ -1,14 +1,28 @@
 body {
     margin: 0;
     font-family: 'Ubuntu', sans-serif;
-    background-color: rgb(250 249 250);
+    background: rgb(255,132,132);
+    background: -moz-linear-gradient(0deg, rgba(255,132,132,0.2805497198879552) 0%, rgba(255,255,255,1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(255,132,132,0.2805497198879552) 0%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(0deg, rgba(255,132,132,0.2805497198879552) 0%, rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8484",endColorstr="#ffffff",GradientType=1);
 }
 
 .titleb{
+    font-size: 65px;
+    font-weight: 800;
+    background: -webkit-linear-gradient(#ff6471, #85242b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+.title-yellow{
     font-size: 40px;
     font-weight: 800;
-    color: #d2414c;
+    color: #b96322;
+    text-align: center;
 }
+
 .title{
     font-size: 40px;
 }
@@ -17,13 +31,18 @@ body {
     font-size: 30px;
 }
 
-.header1{
-    font-size: 24px;
+.sub-title{
+    font-size: 25px;
+    font-weight: bold;
+    color: #85242b;
 }
 
-.header2{
-    font-size: 16px;
+.header1{
+    font-size: 18px;
+    font-weight: 300;
+    color:#52171b
 }
+
 .content{
     font-size: 14px;
 }

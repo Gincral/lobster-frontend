@@ -50,8 +50,13 @@ export async function getLOBEEBalance(publicKey) {
     ]
   }
   const responce = await axios.post(url, body);
-  const balance = responce.data.result[0].account.data.parsed.info.tokenAmount.amount;
-  console.log(balance);
-  return balance/LAMPORTS_PER_SOL;
+  try{
+    const balance = responce.data.result[0].account.data.parsed.info.tokenAmount.amount;
+    return balance/LAMPORTS_PER_SOL;
+  }catch{
+    return 0;
+  }
+  
+  
   // return balance;
 }

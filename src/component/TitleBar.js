@@ -51,11 +51,11 @@ class TitleBar extends React.Component {
             <div className="titlebar-titlebar">
                 <img className="titlebar-logo" src={logo} />
                 <div className="titlebar-title"> Lobster Finance</div>
-                {!this.state.walletConnected && (<button className='btn-regular connect-btn blue btn' onClick={this.wallet}> Connect</button>)}
+                {!this.state.walletConnected && (<button className='btn-regular connect-btn red btn' onClick={this.wallet}> Connect To Wallet</button>)}
                 {this.state.walletConnected && (<>
-                    <button className='btn-regular lobee-balance-btn purple btn'> {this.state.LOBEEbalance +' '+' LOBEE'} </button>
-                    <button className='btn-regular sol-balance-btn purple btn'> {this.state.SOLbalance +' '+' SOL'} </button>
-                    <button className='btn-regular address-btn purple btn'> {this.state.hiddenAddress} </button>
+                    <button className='btn-regular lobee-balance-btn'> {this.state.LOBEEbalance +' '+' LOBEE'} </button>
+                    <button className='btn-regular sol-balance-btn'> {this.state.SOLbalance +' '+' SOL'} </button>
+                    <button className='btn-regular address-btn'> {this.state.hiddenAddress} </button>
                 </>)}
             </div>
         </>)

@@ -15,7 +15,7 @@
   display: inline-block;
   border: transparent;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
   font-family: 'Ubuntu', sans-serif;
   width: 160px;
   height: 28px;
@@ -23,6 +23,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #85242b !important;
+  background-color: transparent !important;
 }
 
 .btn-regular:hover,.btn-regular:focus, .btn-menu:hover,.btn-menu:focus {
@@ -31,12 +33,13 @@
 
 $colors: (
   purple: #a972cb,
-  red: #ef6eae, 
+  red: #d2414c, 
   orange: #ff7f82, 
-  yellow: #ffa260, 
+  yellow: #ffa460, 
   lime: #e4cb58, 
   green: #8fc866, 
-  blue: #19bc8b
+  blue: #19bc8b,
+
 );
 
 @each $button, $color in $colors {
@@ -47,16 +50,13 @@ $colors: (
     background-color: #{$color};
   }
 }
-
 .btn {  
   color: var(--color);
   transition: 0.25s;
-  
   &:hover,
   &:focus { 
     border-color: var(--hover);
-    color: #fff;
+    color: #fff !important;
   }
 }
-
 

@@ -2,5 +2,17 @@
     width: 240px;
     background-color: white;
     height: calc(100vh - 66px);
-    border-right: 2px solid rgba(133, 133, 133, 0.1);
+    border-right: 2px solid rgba(133, 133, 133, 0.2);
+}
+.blue-lob{
+    height:150px;
+}
+
+.sidebar-footer{
+    height: 240px;
+    width: 240px;
+    bottom: 0;
+    position: absolute;
+    border-top: 2px solid rgba(133, 133, 133, 0.2);
+    text-align: center;
 }
