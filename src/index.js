@@ -8,10 +8,12 @@ import reduxThunk from 'redux-thunk';
 
 import './style/index.css';
 import './style/home.css'
+import './style/sidebarStyle.css'
 import './style/numberAnimate.scss';
 import './style/titleStyle.css';
 import './style/buttonStyle.scss';
 import './i18n';
+
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducers, composeEnhancers(applyMiddleware(reduxThunk)));
