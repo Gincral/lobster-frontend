@@ -4,13 +4,20 @@ import loblogo from '../resources/icon/icon-black.png';
 import sollogo from '../resources/icon/solana-icon.png';
 import pic from '../resources/icon/lob-red.png'
 import SideBar from './SideBar';
-import { withTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+// import { withTranslation } from 'react-i18next';
 
 class Home extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+        }
+    }
+
     componentDidMount = () => {
         setInterval(this.genNumber(1454, 95, 76, 95), 2000);
-        // setTimeout(this.genNumber(14.5445));
     }
 
     genNumber = (value1, value2, value3, value4) => {
@@ -33,9 +40,7 @@ class Home extends React.Component {
     };
 
     render() {
-        const { t } = this.props;
-        const number1 = 1454.45;
-        const number2 = 54.45;
+        
         return (<>
             <TitleBar />
             <div className="home-grid">
@@ -44,7 +49,8 @@ class Home extends React.Component {
                     <div className="home-content">
                         <div className="home-title">
                             <div className='titleb'>Lobster Finance</div>
-                            <div className='sub-title title-sub'>{t('title')}</div><br></br>
+                            <div className='sub-title title-sub'>There is Only One Shiba Inu Named Lobster!</div><br></br>
+                            {/* <div className='sub-title title-sub'>{t('title')}</div><br></br> */}
                             <img src={pic} className='title-pic' />
                         </div>
                         <div className="home-pool">
@@ -65,18 +71,6 @@ class Home extends React.Component {
                                 <div className='header1'> SOL in Farms </div>
                             </div>
                             </div>
-
-
-
-                    
-                            
-                            
-                               
-                           
-                            {/* <div className='home-buttons'>
-                                <button className='btn-regular orange btn'> Harvest </button>
-                                <button className='btn-regular green btn'> Compound </button>
-                            </div> */}
                         </div>
                     </div>
                 </div>
@@ -86,5 +80,16 @@ class Home extends React.Component {
 
 }
 
-const HomeComponent = withTranslation()(Home);
-export default HomeComponent;
+// const HomeComponent = withTranslation()(Home);
+
+Home.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+    walletConnected: state.walletConnected,
+    userAddress: state.userAddress,
+});
+
+export default connect(mapStateToProps)(Home);
+

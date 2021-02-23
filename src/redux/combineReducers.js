@@ -22,7 +22,31 @@ const userAddressReducer = (state=null, action) =>{
     }
 }
 
+const LOBEEbalanceReducer = (state=null, action) =>{
+    switch(action.type){
+        case 'SET_LOBEE_BALANCE':
+            return action.payload;
+        case 'CLEAR_LOBEE_BALANCE':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+const SOLbalanceReducer = (state=null, action) =>{
+    switch(action.type){
+        case 'SET_SOL_BALANCE':
+            return action.payload;
+        case 'CLEAR_SOL_BALANCE':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 export default combineReducers({
     walletConnected: walletConnectedReducer,
     userAddress: userAddressReducer,
+    LOBEEbalance: LOBEEbalanceReducer,
+    SOLbalance: SOLbalanceReducer,
 });

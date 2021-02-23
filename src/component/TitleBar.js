@@ -4,40 +4,51 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Wallet from '@project-serum/sol-wallet-adapter';
 import { getSOLBalance, getLOBEEBalance } from '../service/connectToWallet';
-// import { connectToWallet, disconnectToWallet, setUserAddress, clearUserAddress } from '../redux/actions';
+import { connectToWallet, disconnectToWallet, setUserAddress, clearUserAddress, setLOBEEBalance, clearLOBEEBalance, setSOLBalance, clearSOLBalance} from '../redux/actions';
 
 
 class TitleBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            walletConnected: false,
-            userAddress: null,
+            walletConnected: this.props.walletConnected,
             hiddenAddress: null,
             SOLbalance: -100,
             LOBEEbalance: -100,
+            buttonText: "Connect To Wallet",
         }
     }
 
     wallet = async () => {
-        let providerUrl = 'https://www.sollet.io';
-        let wallet = new Wallet(providerUrl);
+        await this.setState({ buttonText: "Connecting" });
+
+        let wallet = new Wallet('https://www.sollet.io');
         wallet.on('connect', async (publicKey) => {
             console.log(publicKey.toBase58());
-            // await this.props.dispatch(setUserAddress(publicKey.toBase58()));
-            // await this.props.dispatch(connectToWallet());
-            await this.setState({ SOLbalance: await getSOLBalance(publicKey.toBase58()) });
-            await this.setState({ LOBEEbalance: await getLOBEEBalance(publicKey.toBase58()) });
+            const SOLbalance = await getSOLBalance(publicKey.toBase58());
+            const LOBEEbalance = await getLOBEEBalance(publicKey.toBase58());
+
+            await this.setState({ SOLbalance: SOLbalance });
+            await this.setState({ LOBEEbalance: LOBEEbalance });
             await this.setState({ walletConnected: true });
-            await this.setState({ userAddress: publicKey.toBase58() });
             await this.setState({ hiddenAddress: this.hideAddress(publicKey.toBase58()) })
+            
+            await this.props.dispatch(connectToWallet());
+            await this.props.dispatch(setUserAddress(publicKey));
+            await this.props.dispatch(setLOBEEBalance(LOBEEbalance));
+            await this.props.dispatch(setSOLBalance(SOLbalance));
+            
         });
         wallet.on('disconnect', async () => {
+            await this.setState({ buttonText: "Connect To Wallet" });
             console.log('Disconnected');
-            // await this.props.dispatch(disconnectToWallet());
-            // await this.props.dispatch(clearUserAddress());
             this.setState({ walletConnected: false });
             this.setState({ userAddress: null });
+            
+            await this.props.dispatch(disconnectToWallet());
+            await this.props.dispatch(clearUserAddress());
+            await this.props.dispatch(clearLOBEEBalance());
+            await this.props.dispatch(clearSOLBalance());
         });
         await wallet.connect();
     }
@@ -51,7 +62,7 @@ class TitleBar extends React.Component {
             <div className="titlebar-titlebar">
                 <img className="titlebar-logo" src={logo} />
                 <div className="titlebar-title"> Lobster Finance</div>
-                {!this.state.walletConnected && (<button className='btn-regular connect-btn red btn' onClick={this.wallet}> Connect To Wallet</button>)}
+                {!this.state.walletConnected && (<button className='btn-regular connect-btn red btn' onClick={this.wallet}> {this.state.buttonText}</button>)}
                 {this.state.walletConnected && (<>
                     <button className='btn-regular lobee-balance-btn'> {this.state.LOBEEbalance +' '+' LOBEE'} </button>
                     <button className='btn-regular sol-balance-btn'> {this.state.SOLbalance +' '+' SOL'} </button>
@@ -68,7 +79,9 @@ TitleBar.propTypes = {
 
 const mapStateToProps = (state) => ({
     walletConnected: state.walletConnected,
-    userAddress: state.userAddressReducer,
+    userAddress: state.userAddress,
+    LOBEEbalance: state.LOBEEbalance,
+    SOLbalance: state.SOLbalance,
 });
 
 export default connect(mapStateToProps)(TitleBar);
