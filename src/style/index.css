@@ -14,8 +14,17 @@ body {
     background: -webkit-linear-gradient(#ff6471, #85242b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    
 }
+
+.titleb-1{
+    margin-top: 10%;
+    font-size: 65px;
+    font-weight: 800;
+    background: -webkit-linear-gradient(#ff6471, #85242b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .title-yellow{
     font-size: 40px;
     font-weight: 800;
